@@ -8,7 +8,7 @@ public enum Statuses {
     NG("何らかのエラーがあった場合のステータス。");
 
     /** 説明。 */
-    private String description;
+    private final String description;
 
     private Statuses(String description) {
         this.description = description;
