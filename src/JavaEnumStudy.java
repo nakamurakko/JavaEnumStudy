@@ -18,8 +18,7 @@ public class JavaEnumStudy {
 
         // for を使って Enum の値を全て出力。
         for (Statuses status : Statuses.values()) {
-            System.out.println("status.name() : " + status.name() + ", status.ordinal() : " + status.ordinal()
-                    + ", status.getCode() : " + status.getDescription());
+            System.out.println("status.name() : " + status.name() + ", status.ordinal() : " + status.ordinal() + ", status.getCode() : " + status.getDescription());
         }
 
         System.out.println("----------");
