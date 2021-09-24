@@ -12,11 +12,10 @@ public class JavaEnumStudy {
      */
     public static void main(String[] args) {
         System.out.println(Statuses.OK + ":" + Statuses.OK.getDescription());
-        System.out.println(Statuses.NG + ":" + Statuses.NG.getDescription());
 
         System.out.println("----------");
 
-        // for を使って Enum の値を全て出力。
+        // values() を使って Enum の値を全て出力。
         for (Statuses status : Statuses.values()) {
             System.out.println("status.name() : " + status.name() + ", status.ordinal() : " + status.ordinal() + ", status.getCode() : " + status.getDescription());
         }
@@ -26,6 +25,7 @@ public class JavaEnumStudy {
         // ビットフラグには EnumSet を使用する。
         EnumSet<Statuses> statusSets;
 
+        // 定義した Enum を全て追加。
         statusSets = EnumSet.allOf(Statuses.class);
 
         if (statusSets.contains(Statuses.OK)) {
@@ -34,12 +34,22 @@ public class JavaEnumStudy {
             System.out.println("EnumSet.allOf(Statuses.class) : OKなし");
         }
 
+        // 指定した Enum のみ追加。
         statusSets = EnumSet.of(Statuses.NG);
 
         if (statusSets.contains(Statuses.OK)) {
             System.out.println("EnumSet.of(Statuses.NG) : OKあり");
         } else {
             System.out.println("EnumSet.of(Statuses.NG) : OKなし");
+        }
+
+        // AbstractCollection<E> を継承しているので、 add または remove が可能。
+        statusSets.add(Statuses.OK);
+
+        if (statusSets.contains(Statuses.OK)) {
+            System.out.println("statusSets.add(Statuses.OK) : OKあり");
+        } else {
+            System.out.println("statusSets.add(Statuses.OK) : OKなし");
         }
     }
 }
