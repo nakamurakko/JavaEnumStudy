@@ -10,6 +10,11 @@ public enum Statuses {
     /** 説明。 */
     private final String description;
 
+    /**
+     * コンストラクター。
+     * 
+     * @param description 説明。
+     */
     private Statuses(String description) {
         this.description = description;
     }
